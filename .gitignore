@@ -1,0 +1,5 @@
+ds003626-download/
+venv/
+__pycache__/
+*.pyc
+*.pyo

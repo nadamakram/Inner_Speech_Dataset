@@ -12,6 +12,12 @@ import mne
 import numpy as np
 import matplotlib.pyplot as plt
 
+import sys
+sys.path.append('/workspaces/Inner_Speech_Dataset/Python_Processing/')  # Add parent directory to the path
+import os
+
+print("LOL Current directory:", sys.path)
+
 from Data_extractions import extract_block_data_from_subject
 from Data_extractions import extract_data_from_subject
 from Data_processing import filter_by_condition, filter_by_class
@@ -20,8 +26,8 @@ from Utilitys import ensure_dir, picks_from_channels
 # In[] Imports modules
 
 # Root where the data are stored
-root_dir = "../"
-save_dir = "../"
+root_dir = "/workspaces/Inner_Speech_Dataset/ds003626-download/"
+save_dir = "/workspaces/Inner_Speech_Dataset/ds003626-download/"
 
 # Subjets
 N_S_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -58,7 +64,7 @@ N_B = 1
 N_S = 1
 
 # Load a single subject to use the Epoched Object structure
-X_S, Y = extract_block_data_from_subject(root_dir, N_S, datatype, N_B=N_B)
+X_S, Y = extract_block_data_from_subject(root_dir, N_S, datatype, n_b =N_B)
 
 Adquisition_eq = "biosemi128"
 montage = mne.channels.make_standard_montage(Adquisition_eq)
